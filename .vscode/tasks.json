@@ -1,0 +1,111 @@
+{
+    "tasks": [
+        {
+            "label": "BuildDirectoryGeneration",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "${workspaceFolder}/build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "/usr/bin"
+                }
+            }
+        },
+        {
+            "label": "CMakeMakefileGeneration",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S",
+                "${workspaceFolder}",
+                "-B",
+                "${workspaceFolder}/build",
+                "-G",
+                "Unix Makefiles"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "/usr/bin"
+                }
+            }
+        },
+        {
+            "label": "CMakeMakefileGenerationDebug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-DDebug=ON",
+                "-S",
+                "${workspaceFolder}",
+                "-B",
+                "${workspaceFolder}/build",
+                "-G",
+                "Unix Makefiles"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "/usr/bin"
+                }
+            }
+        },
+        {
+            "label": "CmakeBuild",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "/usr/bin"
+                }
+            }
+        },
+        {
+            "label": "Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "BuildDirectoryGeneration",
+                "CMakeMakefileGeneration",
+                "CmakeBuild"
+            ]
+        },
+        {
+            "label": "Debug",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "BuildDirectoryGeneration",
+                "CMakeMakefileGenerationDebug",
+                "CmakeBuild"
+            ]
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/build/*"
+            ],
+            "group": {
+                "kind": "none",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "/usr/bin"
+                }
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
