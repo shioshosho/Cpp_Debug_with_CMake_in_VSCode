@@ -1,4 +1,4 @@
-# Install script for directory: /home/nezaki/Projects/C++/vscode_test
+# Install script for directory: /home/nezaki/Projects/C++/Cpp_Debug_with_CMake_in_VSCode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nezaki/Projects/C++/vscode_test/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nezaki/Projects/C++/Cpp_Debug_with_CMake_in_VSCode/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

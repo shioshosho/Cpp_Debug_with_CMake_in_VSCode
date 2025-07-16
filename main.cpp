@@ -1,7 +1,10 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main() {
-    printf("Hello World");
+  cout << "Hello, World!" << endl;
+  int a = 0;
 
-    return 0;
+  return 0;
 }
